@@ -1,0 +1,1 @@
+# binance-macd-enhanced-scanner-v2.
