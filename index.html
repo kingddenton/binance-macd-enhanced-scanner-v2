@@ -1062,12 +1062,6 @@ function deleteSelectedPreset(){
  delete p[name];
  if(!writePresets(p))return;
  
-$('mainTabButton').addEventListener('click',()=>switchScannerTab('main'));
-$('trackerTabButton').addEventListener('click',()=>switchScannerTab('tracker'));
-$('trackerScanBtn').addEventListener('click',scanMacdTracker);
-$('trackerStopBtn').addEventListener('click',stopMacdTracker);
-$('trackerClearBtn').addEventListener('click',()=>{trackerResults=[];renderTracker();$('trackerCount').textContent='Coins checked: 0';$('trackerState').textContent='Status: Results cleared';});
-
 refreshPresetList();
  $('presetStatus').textContent='Deleted "'+name+'".';
 }
@@ -1140,6 +1134,13 @@ $('presetList').addEventListener('change',()=>{
  try{$('loadDefaultPreset').checked=localStorage.getItem(PRESET_STORAGE_KEY+'_default')===$('presetList').value;}
  catch(e){$('loadDefaultPreset').checked=false;}
 });
+$('mainTabButton').addEventListener('click',()=>switchScannerTab('main'));
+$('trackerTabButton').addEventListener('click',()=>switchScannerTab('tracker'));
+$('trackerScanBtn').addEventListener('click',scanMacdTracker);
+$('trackerStopBtn').addEventListener('click',stopMacdTracker);
+$('trackerClearBtn').addEventListener('click',()=>{trackerResults=[];renderTracker();$('trackerCount').textContent='Coins checked: 0';$('trackerState').textContent='Status: Results cleared';});
+
+
 refreshPresetList();
 loadDefaultPresetIfSelected();
 try{$('loadDefaultPreset').checked=!!localStorage.getItem(PRESET_STORAGE_KEY+'_default');}
